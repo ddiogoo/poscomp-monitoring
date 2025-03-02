@@ -6,5 +6,5 @@ server:
   port: 3030
 
 http-service:
-  url: https://exemplo.com
+  url: "*************************"
   which-lambda-service: aws-lambda
