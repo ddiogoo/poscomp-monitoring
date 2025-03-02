@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: poscomp_backend_webscraping
+
+server:
+  port: 3030
+
+http-service:
+  url: https://exemplo.com
+  which-lambda-service: aws-lambda
