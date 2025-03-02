@@ -4,6 +4,7 @@ import com.poscomp.poscomp_backend_webscraping.services.selenium.WebScrapingServ
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
+import java.time.Duration
 
 @Service
 class BackgroundService(private val webScrapingService: WebScrapingService) {
@@ -17,7 +18,7 @@ class BackgroundService(private val webScrapingService: WebScrapingService) {
                 logger.error("Error on running background task ${e.message}")
                 webScrapingService.closeDriver()
             }
-            Thread.sleep(5000)
+            Thread.sleep(Duration.ofSeconds(5).toMillis())
         }
     }
 }
