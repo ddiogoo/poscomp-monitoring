@@ -1,21 +1,18 @@
 package com.poscomp.poscomp_backend_webscraping
 
-import com.poscomp.poscomp_backend_webscraping.services.IHttpService
-import org.slf4j.LoggerFactory
+import com.poscomp.poscomp_backend_webscraping.services.background.BackgroundService
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
+import org.springframework.scheduling.annotation.EnableAsync
 
+@EnableAsync
 @SpringBootApplication
 @ComponentScan("com.poscomp.poscomp_backend_webscraping")
-class PoscompBackendWebscrapingApplication(
-	private val httpService: IHttpService
-) : CommandLineRunner {
-	private val logger = LoggerFactory.getLogger(javaClass)
-
+class PoscompBackendWebscrapingApplication(private val backgroundService: BackgroundService) : CommandLineRunner {
 	override fun run(vararg args: String?) {
-		httpService.request("")
+		backgroundService.startBackgroundService()
 	}
 }
 

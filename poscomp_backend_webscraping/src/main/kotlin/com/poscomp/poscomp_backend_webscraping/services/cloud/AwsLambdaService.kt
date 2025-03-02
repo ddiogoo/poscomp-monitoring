@@ -1,6 +1,7 @@
-package com.poscomp.poscomp_backend_webscraping.services
+package com.poscomp.poscomp_backend_webscraping.services.cloud
 
 import com.poscomp.poscomp_backend_webscraping.configs.HttpServiceConfigData
+import com.poscomp.poscomp_backend_webscraping.services.interfaces.IHttpService
 import org.slf4j.LoggerFactory
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.stereotype.Component
