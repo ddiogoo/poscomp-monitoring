@@ -9,7 +9,7 @@ export const handler = async (event) => {
     }
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${body.message}!` }),
+      body: JSON.stringify({ message: body.message }),
     };
   } catch (error) {
     return {
