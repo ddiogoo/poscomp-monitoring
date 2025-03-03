@@ -4,6 +4,10 @@
 
 This project was created to monitor the opening of the POSCOMP exam registration notice, which is a test for the selection of candidates for the master's and doctorate courses in Computer Science in Brazil.
 
+## Architecture
+
+![Architecture](.github/poscomp%20monitoring.png)
+
 ## Configuration
 
 ### AWS Lambda
