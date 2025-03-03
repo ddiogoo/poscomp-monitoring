@@ -1,7 +1,7 @@
 package com.poscomp.poscomp_backend_webscraping.services.cloud
 
 import com.poscomp.poscomp_backend_webscraping.configs.HttpServiceConfigData
-import com.poscomp.poscomp_backend_webscraping.services.interfaces.IHttpService
+import com.poscomp.poscomp_backend_webscraping.services.interfaces.IApiHttpService
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -12,10 +12,14 @@ import org.springframework.stereotype.Component
 
 @Component
 @ConditionalOnProperty(name = ["http-service.which-lambda-service"], havingValue = "aws-lambda")
-class AwsLambdaService(private val httpService: HttpServiceConfigData) : IHttpService {
+class ApiGatewayAwsLambdaService(
+    private val httpService: HttpServiceConfigData
+) : IApiHttpService {
     private val logger = LoggerFactory.getLogger(javaClass)
     private val client = OkHttpClient()
     private val mediaType = "application/json".toMediaType()
+
+    override fun serviceName(): String = "AWS Lambda"
 
     override fun request(body: String): String {
         val request = Request.Builder()
@@ -37,6 +41,4 @@ class AwsLambdaService(private val httpService: HttpServiceConfigData) : IHttpSe
             throw e
         }
     }
-
-    override fun serviceName(): String = "AWS Lambda"
 }
