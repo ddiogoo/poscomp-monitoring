@@ -77,9 +77,16 @@ PORT_WEBSOCKET_SERVER=<PORT_WEBSOCKET_SERVER_NUMBER>
 go run *.go
 ```
 
-## Warning
+### WebSocket Client (*poscomp_frontend_websocket_client*)
 
-This README.md file is not finished yet. The project is still under development.
+1. Open the terminal on the `poscomp_frontend_websocket_client` directory.
+2. Run the following command:
+
+```bash
+npm i
+npm run dev
+```
+
 
 ## License
 
