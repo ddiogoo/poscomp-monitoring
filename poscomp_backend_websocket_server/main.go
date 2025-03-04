@@ -9,19 +9,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func serveHome(w http.ResponseWriter, r *http.Request) {
-	log.Println(r.URL)
-	if r.URL.Path != "/" {
-		http.Error(w, "Not found", http.StatusNotFound)
-		return
-	}
-	if r.Method != http.MethodGet {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-	http.ServeFile(w, r, "home.html")
-}
-
 func main() {
 	flag.Parse()
 	err := godotenv.Load()
@@ -35,7 +22,6 @@ func main() {
 	}
 	go hub.run()
 	go sqs.HandleConsumingQueue()
-	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
 		serveWs(hub, w, r)
 	})
