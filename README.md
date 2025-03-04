@@ -10,6 +10,19 @@ This project was created to monitor the opening of the POSCOMP exam registration
 
 ## Configuration
 
+### AWS Credentials
+
+1. Create `credentials` file in the `~/.aws` directory. If the `~/.aws` directory does not exist, create it.
+2. Add the following content to the `credentials` file:
+
+```credentials
+[default]
+aws_access_key_id = <YOUR_ACCESS_KEY_ID>
+aws_secret_access_key = <YOUR_SECRET_ACCESS_KEY>
+```
+
+3. Replace `<YOUR_ACCESS_KEY_ID>` and `<YOUR_SECRET_ACCESS_KEY>` with your AWS credentials and save the file.
+
 ### AWS Lambda
 
 1. Create a new Lambda function in the AWS
@@ -21,23 +34,52 @@ This project was created to monitor the opening of the POSCOMP exam registration
 2. Obtain the API Gateway URL.
 3. Add the API Gateway URL to the `poscomp_backend_webscraping/src/main/resources/application.yaml` file:
 
-  ```yaml
-  spring:
-    application:
-      name: poscomp_backend_webscraping
+```yaml
+spring:
+  application:
+    name: poscomp_backend_webscraping
 
-  server:
-    port: 3030
+server:
+  port: 3030
 
-  http-service:
-    url: <API_ENDPOINT_GATEWAY>
-    which-lambda-service: aws-lambda
-  ```
+http-service:
+  url: <API_ENDPOINT_GATEWAY>
+  which-lambda-service: aws-lambda
+```
 
 ### Amazon Simple Queue Service (SQS)
 
 1. Create a new SQS queue in the AWS named `poscomp-queue`.
 2. Add destination to the Lambda function.
+3. Add the following content on `.env` file:
+
+```.env
+AWS_REGION=<YOUR_AWS_REGION>
+AWS_SQS_QUEUE_URL=<YOUR_AWS_SQS_QUEUE_URL>
+PORT_WEBSOCKET_SERVER=<PORT_WEBSOCKET_SERVER_NUMBER>
+```
+
+4. Replace `<YOUR_AWS_REGION>` with your AWS region, replace `<YOUR_AWS_SQS_QUEUE_URL>` with your SQS queue URL, and replace `<PORT_WEBSOCKET_SERVER_NUMBER>` with the port number of the WebSocket server and save the file.
+
+## Running
+
+### WebScraping (*poscomp_backend_webscraping*)
+
+1. Open the `poscomp_backend_webscraping` project in IntelliJ IDEA.
+2. Run the `PoscompBackendWebscrapingApplication.kt` file.
+
+### WebSocket Server (*poscomp_backend_websocket_server*)
+
+1. Open the terminal on the `poscomp_backend_websocket_server` directory.
+2. Run the following command:
+
+```bash
+go run *.go
+```
+
+## Warning
+
+This README.md file is not finished yet. The project is still under development.
 
 ## License
 
