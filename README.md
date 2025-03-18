@@ -1,10 +1,10 @@
 ![Amazon API Gateway](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B.svg?logo=Amazon-API-Gateway&logoColor=white) ![Amazon SQS](https://img.shields.io/badge/Amazon%20SQS-FF4F8B.svg?logo=Amazon-SQS&logoColor=white) ![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-FF9900.svg?logo=AWS-Lambda&logoColor=white) ![Go](https://img.shields.io/badge/Go-00ADD8.svg?logo=Go&logoColor=white) ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg?logo=Kotlin&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-5FA04E.svg?logo=nodedotjs&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F.svg?logo=Spring-Boot&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-000000.svg?logo=nextdotjs&logoColor=white)
 
-# 📊 POSCOMP Monitoring
+# POSCOMP Monitoring
 
 POSCOMP Monitoring is a system designed to track the release of the POSCOMP exam registration notice. POSCOMP is a standardized test used for the selection of candidates for master's and doctoral programs in Computer Science in Brazil.
 
-## 🛠️ Architecture
+## Architecture
 
 ![Architecture](.github/poscomp%20monitoring.png)
 
@@ -16,7 +16,7 @@ The system consists of three main components:
 
 The infrastructure leverages AWS Lambda, Amazon API Gateway, and Amazon Simple Queue Service (SQS) for scalable and event-driven processing.
 
-## ⚙️ Configuration
+## Configuration
 
 ### 1. AWS Credentials
 
@@ -73,7 +73,7 @@ PORT_WEBSOCKET_SERVER=<PORT_WEBSOCKET_SERVER_NUMBER>
 
 Replace the placeholders with your AWS region, SQS queue URL, and WebSocket server port number.
 
-## 🚀 Running the System
+## Running the System
 
 ### 1. Web Scraping Service (*poscomp_backend_webscraping*)
 
@@ -99,6 +99,6 @@ npm install
 npm run dev
 ```
 
-## 📚 License
+## License
 
 This project is not licensed yet.
